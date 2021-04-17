@@ -1,15 +1,9 @@
 const express = require("express")
 const Car = require("../models/carschema")
-const User = require("../models/user")
-
-const bcrypt=require('bcryptjs') 
-const jwt=require('jsonwebtoken')
-
-const auth=require('./verifytoken')
 
 const router = express.Router()
 
-router.get('/cars',auth, async (req, res) => {
+router.get("/cars", async (req, res) => {
 
     const posts = await Car.find()
 
@@ -105,43 +99,5 @@ router.delete("/cars/:id", async (req, res) => {
     }
 
 })
-
-
-router.post("/register",async(req,res)=>{
-
-    const salt=await bcrypt.genSalt(10)
-    const hashpass=await bcrypt.hash(req.body.password,salt);
-
-    const user=new User({
-        uname:req.body.uname,
-        password:hashpass
-    })
-    await user.save();
-    res.send(user).status(200);
-});
-
-
-router.post('/login',async(req,res)=>{
-    try {
-        const user=await User.findOne({uname:req.body.uname});
-    if(!user){
-        return res.send('user dosent exist');
-    }else{
-        const isvalid=await bcrypt.compare(req.body.password,user.password);
-        if(!isvalid){
-            res.send("password incorrect");
-        }else{
-            const token=jwt.sign({_id:user._id},'privatekey')
-            res.send({token})
-            // res.header('access-token', token);
-            // console.log(res.send(token)) 
-        }
-    }
-    } catch (error) {
-        res.send(error);
-    }
-    
-});
-
 
 module.exports = router
