@@ -1,6 +1,6 @@
 const express = require("express")
 const Car = require("../models/carschema")
-const User = require("../models/userschema")
+// const User = require("../models/userschema")
 // const bcrypt = require('bcryptjs')
 // const jwt = require('jsonwebtoken');
 // const auth = require('./verifyToken');
@@ -16,13 +16,13 @@ router.get("/cars", async (req, res) => {
 })
 
 
-router.get("/users", async (req, res) => {
+// router.get("/users", async (req, res) => {
 
-    const posts = await User.find()
+//     const posts = await User.find()
 
-        res.send(posts)
+//         res.send(posts)
 
-})
+// })
 
 
 router.get("/cars/:id", async (req, res) => {
