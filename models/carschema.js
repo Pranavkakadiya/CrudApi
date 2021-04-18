@@ -1,11 +1,11 @@
-const mongoose=require('mongoose');
+const mongoose = require('mongoose');
 
 const schema = mongoose.Schema({
 
-    title: {type:String},
-    content: {type:String},
+    title: { type: String },
+    content: { type: String }
 
-},{timestamps:true})
+}, { timestamps: true })
 
 
 module.exports = mongoose.model("Car", schema)
