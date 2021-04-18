@@ -1,9 +1,9 @@
 const express = require("express")
 const Car = require("../models/carschema")
-const User = require("../models/user")
+const User = require("../models/userschema")
 // const bcrypt = require('bcryptjs')
 // const jwt = require('jsonwebtoken');
-const auth = require('./verifyToken');
+// const auth = require('./verifyToken');
 
 const router = express.Router()
 
