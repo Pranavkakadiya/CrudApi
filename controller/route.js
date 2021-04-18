@@ -1,12 +1,24 @@
 const express = require("express")
 const Car = require("../models/carschema")
 const User = require("../models/user")
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken');
+const auth = require('./verifyToken');
 
 const router = express.Router()
 
 router.get("/cars", async (req, res) => {
 
     const posts = await Car.find()
+    setTimeout(() => {
+        res.send(posts)
+    }, 5000)
+})
+
+
+router.get("/users", async (req, res) => {
+
+    const posts = await User.find()
     setTimeout(() => {
         res.send(posts)
     }, 5000)

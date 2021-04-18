@@ -6,8 +6,8 @@ module.exports=function(req,res,next){
         res.send('no token found');
     }else{
         try {
-            jwt.verify(token.split(' ')[1],'privatekey');
-            // jwt.verify(token,'privatekey');
+            // jwt.verify(token.split(' ')[1],'privatekey');
+            jwt.verify(token,'privatekey');
             // console.log(token.split(' ')[1])
             next()
 
