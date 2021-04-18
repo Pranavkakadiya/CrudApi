@@ -1,6 +1,6 @@
 const express = require("express")
-const mongoose = require("mongoose")
-var db=require('./conn')
+// const mongoose = require("mongoose")
+// var db=require('./conn')
 const routes = require("./controller/route")
 const bodyparser=require('body-parser');
 
