@@ -21,6 +21,12 @@ router.get("/cars/:id", async (req, res) => {
     console.log(req.params.id)
 
     const data = await Car.findOne({ _id: req.params.id })
+    
+    setTimeout(()=>{
+
+        res.send(posts)
+    
+    },5000)
 
     console.log(data)
 
