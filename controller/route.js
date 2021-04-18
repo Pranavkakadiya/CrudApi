@@ -54,7 +54,7 @@ router.patch("/cars/:id", async (req, res) => {
 router.delete("/cars/:id", async (req, res) => {
     try {
         const data = await Car.deleteOne({ _id: req.params.id })
-        res.status(204).send(data)
+        res.status(204).send("Post deleted successfully!" + req.params.id)
 
     } catch {
         res.status(404)
